@@ -4,22 +4,6 @@ from TrainUtils.Coder import Coder
 import sys
 
 
-drop_case = [
-            '2017-2018-CA_formal_SONG SHI JI^SONG SHI JI',
-            '2017-2018-CA_formal_ZHOU YU DE',
-            '2020-supp_CHEN JIAN YU',
-            '2020-supp_LQH^LU QING HU^^6892-13',
-            '2020-supp_SJN^SHEN JIN NAN',
-            '2020-supp_YAN XI JIANG',
-            'add-CSCA_formal_CHEN DE XIANG',
-            'add-CSCA_formal_DU HE XIAN',
-            'add-CSCA_formal_GAO SHUN LIN',
-            'add-CSCA_formal_GONG WEI FAN',
-            'add-CSCA_formal_JIANG DE YANG',
-            'add-CSCA_formal_SHAN HAI ZHONG',
-            'add-CSCA_formal_SU JIE',
-            'add-CSCA_formal_ZPH^ZHENG PEI HUA']
-
 configs = {
     'Base': {
         'TRAIN': '/homes/rqyu/Data/PI-RADS/train.json',
@@ -28,7 +12,7 @@ configs = {
         'TEST2': '/homes/rqyu/Data/PI-RADS/SUH/data.json',
         'TEST INDEX': 1,
 
-        'DROP CASE': drop_case,
+        'DROP CASE': '/homes/rqyu/Data/PI-RADS/dropcases.txt',
 
         'SAVE': r'/homes/rqyu/Projects/PI-RADS_Classification/Results',
 

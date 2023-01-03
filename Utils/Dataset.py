@@ -47,6 +47,16 @@ def get_data(dict, transforms, detail=False):
 
     return data
 
+def read_dropcase(path):
+    f = open(path)
+    line = f.readline()
+    drop_cases = []
+    while line:
+        drop_cases.append(line)
+        line = f.readline().replace('\n','')
+    f.close()
+    return drop_cases
+
 
 class RandContrastd:
     def __init__(self, keys, factors, prob):
@@ -134,8 +144,9 @@ class MyDataset(Dataset):
             self.datalist = json.load(file)
 
         if config['DROP CASE'] is not None:
+            drop_cases = read_dropcase(config['DROP CASE'])
             for data in self.datalist:
-                if data['casename'][:-2] in config['DROP CASE']:
+                if data['casename'][:-2] in drop_cases:
                     self.datalist.remove(data)
 
         if preload:
